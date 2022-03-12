@@ -45,12 +45,15 @@ overclock () {
   # You will neeed to add/remove lines based on the number of graphics cards in 
   # your particular system.
   log "Calling nvidia-settings to overclock GPU(s).."
-  log "$(nvidia-settings -c :0 -a '[gpu:0]/GPUGraphicsClockOffset[3]=100' -a '[gpu:0]/GPUMemoryTransferRateOffset[3]=1300')"
-  log "$(nvidia-settings -c :0 -a '[gpu:1]/GPUGraphicsClockOffset[3]=100' -a '[gpu:1]/GPUMemoryTransferRateOffset[3]=1300')"
-  log "$(nvidia-settings -c :0 -a '[gpu:2]/GPUGraphicsClockOffset[3]=100' -a '[gpu:2]/GPUMemoryTransferRateOffset[3]=1300')"
-  log "$(nvidia-settings -c :0 -a '[gpu:3]/GPUGraphicsClockOffset[3]=100' -a '[gpu:3]/GPUMemoryTransferRateOffset[3]=1300')"
-  log "$(nvidia-settings -c :0 -a '[gpu:4]/GPUGraphicsClockOffset[3]=100' -a '[gpu:4]/GPUMemoryTransferRateOffset[3]=1300')"
-  log "$(nvidia-settings -c :0 -a '[gpu:5]/GPUGraphicsClockOffset[3]=100' -a '[gpu:5]/GPUMemoryTransferRateOffset[3]=1300')"
+  log "$(nvidia-settings -c :0 -a '[gpu:0]/GPUGraphicsClockOffsetAllPerformanceLevels=-200' -a '[gpu:0]/GPUMemoryTransferRateOffsetAllPerformanceLevels=2600')"
+  log "$(nvidia-settings -c :0 -a '[gpu:1]/GPUGraphicsClockOffsetAllPerformanceLevels=-200' -a '[gpu:1]/GPUMemoryTransferRateOffsetAllPerformanceLevels=2600')"
+  log "$(nvidia-settings -c :0 -a '[gpu:2]/GPUGraphicsClockOffsetAllPerformanceLevels=-200' -a '[gpu:2]/GPUMemoryTransferRateOffsetAllPerformanceLevels=2600')"
+  log "$(nvidia-settings -a '[gpu:0]/GPUFanControlState=1' -a '[fan:0]/GPUTargetFanSpeed=70')"
+  log "$(nvidia-settings -a '[gpu:1]/GPUFanControlState=1' -a '[fan:1]/GPUTargetFanSpeed=70')"
+  log "$(nvidia-settings -a '[gpu:2]/GPUFanControlState=1' -a '[fan:2]/GPUTargetFanSpeed=70')"
+  log "$(nvidia-smi  -pl 310)"
+
+
 }
 
 abs_filename() {
